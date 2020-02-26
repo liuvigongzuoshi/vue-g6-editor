@@ -1,48 +1,48 @@
 <template>
   <div>
     <ul class="el-scrollbar__view el-select-dropdown__list context-menu" ref="contextMenu">
-      <li
-        class="el-select-dropdown__item"
-        v-for="menu in menus"
-        :key="menu.key"
-        @click="handleClick(menu)"
-      >{{menu.name}}</li>
+      <li class="el-select-dropdown__item" v-for="menu in menus" :key="menu.key" @click="handleClick(menu)">
+        {{ menu.name }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import eventBus from "@/utils/eventBus";
+import eventBus from '@/utils/eventBus'
 export default {
   data() {
     return {
-      menus: [{ key: 1, name: "菜单1" }, { key: 2, name: "菜单2" }]
-    };
+      menus: [
+        { key: 1, name: '菜单1' },
+        { key: 2, name: '菜单2' }
+      ]
+    }
   },
   created() {
-    this.bindEvent();
+    this.bindEvent()
   },
   methods: {
     init() {},
     bindEvent() {
-      eventBus.$on("contextmenuClick", e => {
-        const menu = this.$refs.contextMenu;
-        menu.style.left = e.clientX + "px";
-        menu.style.top = e.clientY + "px";
-        menu.style.display = "block";
-      });
-       eventBus.$on("mousedown", () => {
-        const menu = this.$refs.contextMenu;
-        menu.style.display = "none";
-      });
+      eventBus.$on('contextmenuClick', e => {
+        const menu = this.$refs.contextMenu
+        menu.style.left = e.clientX + 'px'
+        menu.style.top = e.clientY + 'px'
+        menu.style.display = 'block'
+      })
+      eventBus.$on('mousedown', () => {
+        const menu = this.$refs.contextMenu
+        menu.style.display = 'none'
+      })
     },
     handleClick(item) {
-      alert(item.name);
-      const menu = this.$refs.contextMenu;
-      menu.style.display = "none";
+      alert(item.name)
+      const menu = this.$refs.contextMenu
+      menu.style.display = 'none'
     }
   }
-};
+}
 </script>
 
 <style>

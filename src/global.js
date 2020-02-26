@@ -7,7 +7,7 @@ export default {
   rootContainerClassName: 'root-container',
   nodeContainerClassName: 'node-container',
   edgeContainerClassName: 'edge-container',
-  groupContainerClassName:'group-container',
+  groupContainerClassName: 'group-container',
   defaultNode: {
     shape: 'circle',
     style: {
@@ -62,4 +62,4 @@ export default {
     strokeOpacity: 0.9,
     lineDash: [5, 5]
   }
-};
+}

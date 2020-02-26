@@ -1,9 +1,9 @@
-import { uniqueId } from '@/utils';
-import eventBus from "@/utils/eventBus";
+import { uniqueId } from '@/utils'
+import eventBus from '@/utils/eventBus'
 
 export default class Editor {
   constructor() {
-    this.id = uniqueId();
+    this.id = uniqueId()
   }
   getGrpah() {
     return this.graph

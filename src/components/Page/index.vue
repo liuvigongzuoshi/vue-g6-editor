@@ -4,16 +4,16 @@
   </div>
 </template>
 
-
 <script>
-import G6 from "@antv/g6/build/g6";
-import { initBehavors } from "@/behavior";
+import G6 from '@antv/g6'
+import { initBehavors } from '@/behavior'
+
 export default {
   data() {
     return {
-      pageId: "graph-container",
+      pageId: 'graph-container',
       graph: null
-    };
+    }
   },
   props: {
     height: {
@@ -30,57 +30,57 @@ export default {
     }
   },
   created() {
-    initBehavors();
+    initBehavors()
   },
   mounted() {
     this.$nextTick(() => {
-      this.init();
-    });
+      this.init()
+    })
   },
   methods: {
     init() {
-      const height =  this.height - 42 
-      const width =  this.width - 400
+      const height = this.height - 42
+      const width = this.width - 400
 
       this.graph = new G6.Graph({
-        container: "graph-container",
+        container: 'graph-container',
         height: height,
         width: width,
         modes: {
           // 支持的 behavior
           default: [
-            "drag-canvas",
-            "zoom-canvas",
-            "hover-node",
-            "select-node",
-            "hover-edge",
-            "keyboard",
-            "customer-events",
-            "add-menu"
+            'drag-canvas',
+            'zoom-canvas',
+            'hover-node',
+            'select-node',
+            'hover-edge',
+            'keyboard',
+            'customer-events',
+            'add-menu'
           ],
-          mulitSelect: ["mulit-select"],
-          addEdge: ["add-edge"],
-          moveNode:[ "drag-item"]
+          mulitSelect: ['mulit-select'],
+          addEdge: ['add-edge'],
+          moveNode: ['drag-item']
         }
-      });
-      const { editor, command } = this.$parent;
-      editor.emit("afterAddPage", { graph: this.graph, command });
+      })
+      const { editor, command } = this.$parent
+      editor.emit('afterAddPage', { graph: this.graph, command })
 
-      this.readData();
+      this.readData()
     },
     readData() {
-      let data = this.data;
+      let data = this.data
       if (data) {
-        this.graph.read(data);
+        this.graph.read(data)
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
-.page{
-  margin-left:200px;
+.page {
+  margin-left: 200px;
   margin-right: 200px;
 }
 </style>

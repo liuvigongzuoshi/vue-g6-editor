@@ -5,27 +5,27 @@
 </template>
 
 <script>
-import Item from "./item";
-import eventBus from "@/utils/eventBus";
+import Item from './item'
+import eventBus from '@/utils/eventBus'
 export default {
   components: { Item },
   data() {
     return {
       page: null,
-      command:null
-    };
+      command: null
+    }
   },
   created() {
-    this.bindEvent();
+    this.bindEvent()
   },
   methods: {
     bindEvent() {
-      eventBus.$on("afterAddPage", page => {
-        this.page = page;
-      });
-    },
+      eventBus.$on('afterAddPage', page => {
+        this.page = page
+      })
+    }
   }
-};
+}
 </script>
 
 <style scoped>

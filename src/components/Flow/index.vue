@@ -3,27 +3,25 @@
 </template>
 
 <script>
-import customNode from "./customNode";
-import customEdge from "./customEdge";
+import customNode from './customNode'
+import customEdge from './customEdge'
 import teamNode from './teamNode'
 export default {
-  name:'Flow',
+  name: 'Flow',
   data() {
     return {
       page: null
-    };
+    }
   },
   created() {
-    this.init();
+    this.init()
   },
   methods: {
     init() {
-      customNode.init();
-      customEdge.init();
-      teamNode.init();
+      customNode.init()
+      customEdge.init()
+      teamNode.init()
     }
   }
-};
+}
 </script>
-
-

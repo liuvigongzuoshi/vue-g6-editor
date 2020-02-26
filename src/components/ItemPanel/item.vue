@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li
-      v-for="(item,index) in list"
+      v-for="(item, index) in list"
       :key="index"
       class="getItem"
       :data-shape="item.shape"
@@ -9,18 +9,18 @@
       :data-size="item.size"
       draggable
       @dragstart="handleDragstart"
-      @dragend="handleDragEnd($event,item)"
+      @dragend="handleDragEnd($event, item)"
     >
-      <span class="pannel-type-icon" :style="{background:'url('+item.image+')'}"></span>
-      {{item.name}}
+      <span class="pannel-type-icon" :style="{ background: 'url(' + item.image + ')' }"></span>
+      {{ item.name }}
     </li>
   </ul>
 </template>
 
 <script>
-import eventBus from "@/utils/eventBus";
-import okSvg from "@/assets/icons/ok.svg";
-import bgImg from "@/assets/bg.jpg";
+import eventBus from '@/utils/eventBus'
+import okSvg from '@/assets/icons/ok.svg'
+import bgImg from '@/assets/bg.jpg'
 export default {
   data() {
     return {
@@ -30,134 +30,131 @@ export default {
       offsetY: 0,
       list: [
         {
-          name: "测试节点",
-          label: "测试节点",
-          size: "170*34",
-          type: "node",
+          name: '测试节点',
+          label: '测试节点',
+          size: '170*34',
+          type: 'node',
           x: 0,
           y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+          shape: 'customNode',
+          color: '#1890ff',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg',
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]]
         },
 
         {
-          name: "背景图片节点",
-          label: "背景图片节点",
-          size: "170*34",
-          type: "node",
+          name: '背景图片节点',
+          label: '背景图片节点',
+          size: '170*34',
+          type: 'node',
           x: 0,
           y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+          shape: 'customNode',
+          color: '#1890ff',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg',
           stateImage: okSvg,
           backImage: bgImg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]]
         },
         {
-          name: "双输出节点",
-          label: "双输出节点",
-          size: "170*34",
-          type: "node",
+          name: '双输出节点',
+          label: '双输出节点',
+          size: '170*34',
+          type: 'node',
           x: 0,
           y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+          shape: 'customNode',
+          color: '#1890ff',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg',
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
-          outPoints: [[1, 0.4], [1, 0.6]]
+          outPoints: [
+            [1, 0.4],
+            [1, 0.6]
+          ]
         },
         {
-          name: "大型节点",
-          label: "大型节点",
-          size: "340*34",
-          type: "node",
+          name: '大型节点',
+          label: '大型节点',
+          size: '340*34',
+          type: 'node',
           x: 0,
           y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+          shape: 'customNode',
+          color: '#1890ff',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg',
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]]
         },
         {
-          name: "动画开始节点",
-          label: "动画开始",
-          size: "170*34",
-          type: "node",
+          name: '动画开始节点',
+          label: '动画开始',
+          size: '170*34',
+          type: 'node',
           x: 0,
           y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+          shape: 'customNode',
+          color: '#1890ff',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg',
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]],
           isDoingStart: true
         },
         {
-          name: "动画结束节点",
-          label: "动画结束",
-          size: "170*34",
-          type: "node",
+          name: '动画结束节点',
+          label: '动画结束',
+          size: '170*34',
+          type: 'node',
           x: 0,
           y: 0,
-          shape: "customNode",
-          color: "#1890ff",
-          image:
-            "https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg",
+          shape: 'customNode',
+          color: '#1890ff',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/czNEJAmyDpclFaSucYWB.svg',
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]],
           isDoingEnd: true
         }
       ]
-    };
+    }
   },
   created() {
-    this.bindEvent();
+    this.bindEvent()
   },
   methods: {
     handleDragstart(e) {
-      this.offsetX = e.offsetX;
-      this.offsetY = e.offsetY;
+      this.offsetX = e.offsetX
+      this.offsetY = e.offsetY
     },
     handleDragEnd(e, item) {
-      let data = {};
-      Object.assign(data, item);
-      data.offsetX = this.offsetX;
-      data.offsetY = this.offsetY;
+      let data = {}
+      Object.assign(data, item)
+      data.offsetX = this.offsetX
+      data.offsetY = this.offsetY
       if (this.page) {
-        const graph = this.page.graph;
+        const graph = this.page.graph
         // const size = e.target.dataset.size.split("*");
-        const xy = graph.getPointByClient(e.x, e.y);
-        data.x = xy.x;
-        data.y = xy.y;
-        data.size = item.size.split("*");
-        data.type = "node";
-        this.command.executeCommand("add", [data]);
+        const xy = graph.getPointByClient(e.x, e.y)
+        data.x = xy.x
+        data.y = xy.y
+        data.size = item.size.split('*')
+        data.type = 'node'
+        this.command.executeCommand('add', [data])
       }
     },
     bindEvent() {
-      eventBus.$on("afterAddPage", page => {
-        this.page = page;
-        this.command = page.command;
-      });
+      eventBus.$on('afterAddPage', page => {
+        this.page = page
+        this.command = page.command
+      })
     }
   }
-};
+}
 </script>
 
 <style scoped>

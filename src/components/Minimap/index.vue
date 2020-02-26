@@ -12,44 +12,44 @@
 </template>
 
 <script>
-import Minimap from "@antv/g6/build/minimap";
-import eventBus from "@/utils/eventBus";
+import { Minimap } from '@antv/g6'
+import eventBus from '@/utils/eventBus'
 export default {
   data() {
     return {
       minimap: null,
       graph: null
-    };
+    }
   },
   created() {
-    this.bindEvent();
+    this.bindEvent()
   },
   mounted() {
     this.$nextTick(() => {
-      this.initMinmap();
-    });
+      this.initMinmap()
+    })
   },
   methods: {
     initMinmap() {
       const cfgs = {
-        container: "minimap"
-      };
-      this.minimap = new Minimap({ ...cfgs });
+        container: 'minimap'
+      }
+      this.minimap = new Minimap({ ...cfgs })
     },
     bindEvent() {
-      eventBus.$on("afterAddPage", page => {
-        this.graph = page.graph;
-        this.bindPage();
-      });
+      eventBus.$on('afterAddPage', page => {
+        this.graph = page.graph
+        this.bindPage()
+      })
     },
     bindPage() {
       if (!this.minimap || !this.graph) {
-        return;
+        return
       }
-     this.graph.addPlugin(this.minimap)
+      this.graph.addPlugin(this.minimap)
     }
   }
-};
+}
 </script>
 
 <style scoped>

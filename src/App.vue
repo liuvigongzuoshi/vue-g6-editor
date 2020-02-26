@@ -1,26 +1,26 @@
 <template>
   <div id="app">
-    <G6Editor mode="edit">
-
-    </G6Editor>
+    <G6Editor mode="edit"></G6Editor>
   </div>
 </template>
 
 <script>
 import G6Editor from './components/G6Editor'
+
 export default {
-  name: 'app',
-  components:{G6Editor}
+  name: 'App',
+  components: { G6Editor }
 }
 </script>
 
 <style>
-html, body {
-    overflow: hidden;
-    margin: 0;
-    font-size: 12px;
+html,
+body {
+  overflow: hidden;
+  margin: 0;
+  font-size: 12px;
 }
-#app{
+#app {
   margin: 0;
   padding: 0;
 }
